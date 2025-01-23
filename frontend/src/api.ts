@@ -1,4 +1,4 @@
-const CONSOLEGROQ_API_KEY = "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" 
+const CONSOLEGROQ_API_KEY = import.meta.env.VITE_API_KEY;
 
 export async function callConsoleGroqApi(prompt: string, systemMessage: string, temperature = 1) {
   const headers = {

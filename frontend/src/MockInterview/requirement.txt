@@ -2,7 +2,7 @@ streamlit
 python-dotenv
 speechrecognition
 pyaudio
-PyPDF2
+PyPDF2==3.0.1
 requests
 keyboard
 pyaudio
