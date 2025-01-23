@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import requests
 import json
-import PyPDF2
+import pypdf
 import speech_recognition as sr
 from dotenv import load_dotenv
 
@@ -11,7 +11,7 @@ CONSOLEGROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 CONSOLEGROQ_API_KEY = os.getenv("CONSOLEGROQ_API_KEY")
 
 def extract_text_from_pdf(pdf_file, max_characters=7000):
-    pdf_reader = PyPDF2.PdfReader(pdf_file)
+    pdf_reader = pypdf.PdfReader(pdf_file)
     text = ""
     for page in pdf_reader.pages:
         text += page.extract_text()
