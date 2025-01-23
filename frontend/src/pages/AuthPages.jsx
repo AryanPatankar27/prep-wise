@@ -20,8 +20,9 @@ const AuthPages = () => {
     setError('');
     
     const endpoint = isLogin 
-      ? 'https://prep-wise.onrender.com/api/login'
-      : 'https://prep-wise.onrender.com/api/signup';
+  ? `${process.env.REACT_APP_API_URL}/login`
+  : `${process.env.REACT_APP_API_URL}/signup`;
+
     
     try {
       const response = await fetch(endpoint, {
