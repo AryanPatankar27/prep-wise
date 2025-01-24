@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import requests
 import json
-import PyPDF2
+import pypdf
 import speech_recognition as sr
 from dotenv import load_dotenv
 
@@ -11,13 +11,13 @@ CONSOLEGROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 CONSOLEGROQ_API_KEY = os.getenv("CONSOLEGROQ_API_KEY")
 
 def extract_text_from_pdf(pdf_file, max_characters=7000):
-    pdf_reader = PyPDF2.PdfReader(pdf_file)
-    text = ""
-    for page in pdf_reader.pages:
-        text += page.extract_text()
-        if len(text) >= max_characters:
-            break
-    return text[:max_characters]
+     pdf_reader = pypdf.PdfReader(pdf_file)
+     text = ""
+     for page in pdf_reader.pages:
+         text += page.extract_text()
+         if len(text) >= max_characters:
+             break
+     return text[:max_characters]
 
 def call_consolegroq_api(prompt, system_message, temperature=0.7):
     headers = {
@@ -239,15 +239,15 @@ with col1:
                 st.session_state.questions.append(question_response)
 
 with col2:
-    if st.button("📚 Generate PDF MCQ"):
-        if st.session_state.pdf_content:
-            with st.spinner("Analyzing PDF and generating question..."):
-                question_response = generate_question(topic, st.session_state.pdf_content)
-                if question_response:
-                    st.session_state.current_question = parse_question(question_response)
-                    st.session_state.questions.append(question_response)
-        else:
-            st.error("Please upload study material first.")
+     if st.button("📚 Generate PDF MCQ"):
+         if st.session_state.pdf_content:
+             with st.spinner("Analyzing PDF and generating question..."):
+                 question_response = generate_question(topic, st.session_state.pdf_content)
+                 if question_response:
+                     st.session_state.current_question = parse_question(question_response)
+                     st.session_state.questions.append(question_response)
+         else:
+             st.error("Please upload study material first.")
 
 # Display current question
 if st.session_state.current_question:
