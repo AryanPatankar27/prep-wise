@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import PrivateRoute from './components/PrivateRoute';
-import LandingPage from './pages/LandingPage';
-import RoadmapPage from './pages/RoadmapPage';
-import Authpages from './pages/Authpages';
-import Dashboard from './pages/Dashboard';
-import InterviewPrep from './pages/InterviewPrep';
-import ResumeBuilder from './pages/ResumeBuilder';
-import MockInterviewPrep from './pages/MockInterviewpPrep';
+import PrivateRoute from './components/PrivateRoute.jsx';
+import LandingPage from './pages/LandingPage.tsx';
+import RoadmapPage from './pages/RoadmapPage.tsx';
+import Authpages from './pages/Authpages.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import InterviewPrep from './pages/InterviewPrep.jsx';
+import ResumeBuilder from './pages/ResumeBuilder.tsx';
+import MockInterviewPrep from './pages/MockInterviewpPrep,jsx';
 
 
 export default function App() {
